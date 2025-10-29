@@ -24,8 +24,12 @@ def home(request):
 def hello(request):
     return render(request, 'index.html')
 
+def static_handler(request):
+    return render(request, 'static_handler.html')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('hello/', hello, name='hello'),
+    path('static-handler/', static_handler, name='static_handler'),  # ← ДОБАВИЛИ
 ]
