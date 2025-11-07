@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Архив статей</title>
+    <link rel="stylesheet" href="/static/article.css">
+</head>
+<body class="archive">
+    <div class="header">
+        <h1 class="blog-title">📝 Мой Блог - Лабораторная работа 3</h1>
+    </div>
+    <div class="archive">
+        {% for post in posts %}
+        <div class="one-post">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <div class="article-info">
+                <div class="article-author">Автор: {{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="footer">
+        <p style="text-align: center; color: white; margin-top: 30px;">Всего статей: {{ posts|length }}</p>
+    </div>
+</body>
+</html>
